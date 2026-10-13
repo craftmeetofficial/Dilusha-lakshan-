@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilusha Lakshan Music Studio | Official Website</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        neon: {
+                            cyan: '#00f3ff',
+                            purple: '#b000ff',
+                            pink: '#ff007f',
+                            gold: '#ffd700'
+                        },
+                        dark: {
+                            bg: '#0a0d14',
+                            card: '#121824',
+                            border: '#1f293d'
+                        }
+                    },
+                    boxShadow: {
+                        'glow-cyan': '0 0 20px rgba(0, 243, 255, 0.4)',
+                        'glow-purple': '0 0 20px rgba(176, 0, 255, 0.4)',
+                        'glow-pink': '0 0 20px rgba(255, 0, 127, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Orbitron -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0d14;
+            color: #f3f4f6;
+        }
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+        /* Custom Equalizer Animation */
+        .eq-bar {
+            animation: bounce 1.2s ease-in-out infinite alternate;
+        }
+        @keyframes bounce {
+            0% { height: 15%; }
+            50% { height: 100%; }
+            100% { height: 35%; }
+        }
+        .eq-bar:nth-child(1) { animation-delay: 0.1s; }
+        .eq-bar:nth-child(2) { animation-delay: 0.3s; }
+        .eq-bar:nth-child(3) { animation-delay: 0.2s; }
+        .eq-bar:nth-child(4) { animation-delay: 0.5s; }
+        .eq-bar:nth-child(5) { animation-delay: 0.4s; }
+
+        /* Glowing text effects */
+        .text-glow-cyan {
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.6);
+        }
+        .text-glow-purple {
+            text-shadow: 0 0 10px rgba(176, 0, 255, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-gray-100 min-h-screen flex flex-col justify-between selection:bg-neon-cyan selection:text-black">
+
+    <header class="sticky top-0 z-50 bg-dark-bg/90 backdrop-blur-md border-b border-dark-border transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Brand Name -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
+                    <img src="https://yt3.googleusercontent.com/lEHTglAW7CsPTMvbY2cqsCRCrkO_VLkT2ahhkjGuU0zTjPslUue9R-EV8Ko9EoGo1E2o2GmTI0w=s120-c-k-c0x00ffffff-no-rj" 
+                         alt="Dilusha Lakshan Studio Logo" 
+                         class="w-12 h-12 rounded-full border-2 border-neon-cyan shadow-glow-cyan transition hover:scale-105 duration-300"
+                         onerror="this.src='https://placehold.co/120x120/0a0d14/00f3ff?text=DLS+Logo'">
+                    <div>
+                        <span class="font-orbitron font-extrabold text-lg sm:text-xl tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-white to-neon-purple">
+                            DILUSHA LAKSHAN
+                        </span>
+                        <p class="text-xs text-gray-400 tracking-widest font-semibold uppercase">Music Studio</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex space-x-1 lg:space-x-2">
+                    <button onclick="switchTab('home')" id="nav-home" class="nav-link px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-neon-cyan bg-dark-card border border-neon-cyan/30">
+                        <i class="fa-solid font-normal fa-house mr-1.5"></i> Home
+                    </button>
+                    <button onclick="switchTab('about')" id="nav-about" class="nav-link px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-gray-300 hover:text-white hover:bg-dark-card">
+                        <i class="fa-solid font-normal fa-user-gear mr-1.5"></i> About Us
+                    </button>
+                    <button onclick="switchTab('videos')" id="nav-videos" class="nav-link px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-gray-300 hover:text-white hover:bg-dark-card">
+                        <i class="fa-solid font-normal fa-video mr-1.5"></i> Video Gallery
+                    </button>
+                    <button onclick="switchTab('services')" id="nav-services" class="nav-link px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-gray-300 hover:text-white hover:bg-dark-card">
+                        <i class="fa-solid font-normal fa-sliders mr-1.5"></i> Services
+                    </button>
+                    <button onclick="switchTab('contact')" id="nav-contact" class="nav-link px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-gray-300 hover:text-white hover:bg-dark-card">
+                        <i class="fa-solid font-normal fa-envelope mr-1.5"></i> Contact
+                    </button>
+                </nav>
+
+                <!-- Header CTA Button -->
+                <div class="hidden lg:flex items-center space-x-3">
+                    <a href="https://www.youtube.com/channel/UCkZClg9MhxrNQca2wtc2rmw" target="_blank" class="px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 transition shadow-lg shadow-red-900/40 flex items-center gap-2">
+                        <i class="fa-brands fa-youtube text-base"></i> Subscribe
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white focus:outline-none p-2 rounded-lg bg-dark-card">
+                        <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-card border-b border-dark-border px-4 pt-3 pb-5 space-y-2">
+            <button onclick="switchTab('home'); toggleMobileMenu()" class="w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium text-neon-cyan bg-dark-bg/80 flex items-center gap-3">
+                <i class="fa-solid fa-house w-5"></i> Home
+            </button>
+            <button onclick="switchTab('about'); toggleMobileMenu()" class="w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium text-gray-300 hover:bg-dark-bg flex items-center gap-3">
+                <i class="fa-solid fa-user-gear w-5"></i> About Us
+            </button>
+            <button onclick="switchTab('videos'); toggleMobileMenu()" class="w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium text-gray-300 hover:bg-dark-bg flex items-center gap-3">
+                <i class="fa-solid fa-video w-5"></i> Video Gallery
+            </button>
+            <button onclick="switchTab('services'); toggleMobileMenu()" class="w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium text-gray-300 hover:bg-dark-bg flex items-center gap-3">
+                <i class="fa-solid fa-sliders w-5"></i> Services
+            </button>
+            <button onclick="switchTab('contact'); toggleMobileMenu()" class="w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium text-gray-300 hover:bg-dark-bg flex items-center gap-3">
+                <i class="fa-solid fa-envelope w-5"></i> Contact
+            </button>
+            <a href="https://www.youtube.com/channel/UCkZClg9MhxrNQca2wtc2rmw" target="_blank" class="block w-full text-center mt-3 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-white bg-red-600 hover:bg-red-700">
+                <i class="fa-brands fa-youtube mr-2"></i> Subscribe on YouTube
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        
+        <!-- ================= HOME TAB ================= -->
+        <section id="tab-home" class="tab-content transition-opacity duration-300">
+            <!-- Hero Banner Section -->
+            <div class="relative overflow-hidden bg-dark-card border-b border-dark-border">
+                <div class="absolute inset-0 z-0 opacity-25 bg-cover bg-center filter blur-xs" 
+                     style="background-image: url('https://yt3.googleusercontent.com/S2Fs8_FR0qBQFOO5leD3hYwA13VIktSkbkewNs1sxldVUA62PAFzUV8p5KbauFHxm-3YaUTo=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj');">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-dark-bg/80 to-transparent"></div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neon-purple/10 border border-neon-purple/30 text-neon-purple text-xs font-bold uppercase tracking-wider">
+                                <span class="w-2 h-2 rounded-full bg-neon-purple animate-ping"></span>
+                                Premium Music Production & Recording
+                            </div>
+                            
+                            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-orbitron tracking-tight leading-none text-white">
+                                Crafting <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan via-white to-neon-purple text-glow-cyan">Unforgettable</span> Musical Vibes
+                            </h1>
+                            
+                            <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                                Welcome to <strong class="text-white font-semibold">Dilusha Lakshan Music Studio</strong>. We specialize in vocal recording, professional mixing & mastering, acoustic guitar arrangements, and hit music production in Sri Lanka.
+                            </p>
+
+                            <!-- Equalizer Visualizer Decoration -->
+                            <div class="flex justify-center lg:justify-start items-end space-x-1.5 h-8 my-4">
+                                <div class="w-1.5 bg-neon-cyan rounded-full eq-bar"></div>
+                                <div class="w-1.5 bg-neon-purple rounded-full eq-bar"></div>
+                                <div class="w-1.5 bg-neon-pink rounded-full eq-bar"></div>
+                                <div class="w-1.5 bg-neon-cyan rounded-full eq-bar"></div>
+                                <div class="w-1.5 bg-neon-gold rounded-full eq-bar"></div>
+                                <div class="w-1.5 bg-neon-purple rounded-full eq-bar"></div>
+                                <div class="w-1.5 bg-neon-cyan rounded-full eq-bar"></div>
+                            </div>
+
+                            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                                <a href="https://www.youtube.com/channel/UCkZClg9MhxrNQca2wtc2rmw" target="_blank" 
+                                   class="px-6 py-3.5 rounded-xl font-bold text-sm bg-red-600 hover:bg-red-500 text-white shadow-lg shadow-red-900/50 transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                                    <i class="fa-brands fa-youtube text-lg"></i> YouTube Channel
+                                </a>
+                                <button onclick="switchTab('services')" 
+                                        class="px-6 py-3.5 rounded-xl font-bold text-sm bg-dark-card hover:bg-dark-border text-neon-cyan border border-neon-cyan/40 shadow-glow-cyan/20 transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                                    <i class="fa-solid fa-sliders text-base"></i> View Services
+                                </button>
+                                <a href="https://wa.me/94716183153" target="_blank" 
+                                   class="px-6 py-3.5 rounded-xl font-bold text-sm bg-emerald-600 hover:bg-emerald-500 text-white transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                                    <i class="fa-brands fa-whatsapp text-lg"></i> Contact Studio
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Hero Feature Card -->
+                        <div class="lg:col-span-5">
+                            <div class="bg-dark-card/90 border border-dark-border rounded-2xl p-6 shadow-2xl backdrop-blur-xl relative group hover:border-neon-cyan/50 transition duration-500">
+                                <div class="relative overflow-hidden rounded-xl mb-5 aspect-video bg-black/60">
+                                    <img src="https://yt3.googleusercontent.com/S2Fs8_FR0qBQFOO5leD3hYwA13VIktSkbkewNs1sxldVUA62PAFzUV8p5KbauFHxm-3YaUTo=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" 
+                                         alt="Studio Banner" 
+                                         class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                         onerror="this.src='https://placehold.co/600x350/121824/00f3ff?text=Dilusha+Lakshan+Studio'">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                    <button onclick="switchTab('videos')" class="absolute inset-0 flex items-center justify-center">
+                                        <span class="w-16 h-16 rounded-full bg-neon-cyan/90 text-black flex items-center justify-center text-xl shadow-glow-cyan transform group-hover:scale-110 transition duration-300">
+                                            <i class="fa-solid fa-play ml-1"></i>
+                                        </span>
+                                    </button>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between text-xs text-neon-cyan font-semibold uppercase tracking-wider">
+                                        <span>Featured Track</span>
+                                        <span>Guitar Cover</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-white group-hover:text-neon-cyan transition">Karakara Badinnata Guitar Cover</h3>
+                                    <p class="text-xs text-gray-400 line-clamp-2">Arranged and recorded at Dilusha Lakshan Music Studio. Check out our high quality audio production and mixing.</p>
+                                    
+                                    <div class="pt-3 border-t border-dark-border flex items-center justify-between">
+                                        <span class="text-xs text-gray-400"><i class="fa-solid fa-microphone text-neon-purple mr-1"></i> Dilusha Lakshan</span>
+                                        <button onclick="switchTab('videos')" class="text-xs font-bold text-neon-cyan hover:underline flex items-center gap-1">
+                                            Watch Video <i class="fa-solid fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highlights Grid -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-extrabold font-orbitron text-white tracking-wide">Why Choose Our Studio</h2>
+                    <p class="text-gray-400 mt-2 text-sm">Providing top-grade audio solutions with modern acoustic processing and professional mastering tools.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-dark-card p-6 rounded-2xl border border-dark-border hover:border-neon-cyan/40 transition duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Mixing & Mastering</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">Crystal clear separation, deep punchy bass, and vocal clarity tailored to commercial broadcasting standards.</p>
+                    </div>
+
+                    <div class="bg-dark-card p-6 rounded-2xl border border-dark-border hover:border-neon-purple/40 transition duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-neon-purple/10 border border-neon-purple/30 text-neon-purple flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-guitar"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Guitar & Live Tracking</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">Acoustic, electric, and bass guitar recordings with rich tones, professional mic placements, and custom solos.</p>
+                    </div>
+
+                    <div class="bg-dark-card p-6 rounded-2xl border border-dark-border hover:border-neon-pink/40 transition duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-neon-pink/10 border border-neon-pink/30 text-neon-pink flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-compact-disc"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Full Track Arrangement</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed">Original melody composition, beat creation, background music scores, and cover song music arrangements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ABOUT TAB ================= -->
+        <section id="tab-about" class="tab-content hidden transition-opacity duration-300 py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-dark-card rounded-3xl border border-dark-border p-6 sm:p-10 lg:p-12">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                        <div class="lg:col-span-5 text-center">
+                            <div class="relative inline-block">
+                                <img src="https://yt3.googleusercontent.com/lEHTglAW7CsPTMvbY2cqsCRCrkO_VLkT2ahhkjGuU0zTjPslUue9R-EV8Ko9EoGo1E2o2GmTI0w=s120-c-k-c0x00ffffff-no-rj" 
+                                     alt="Dilusha Lakshan" 
+                                     class="w-48 h-48 sm:w-64 sm:h-64 rounded-2xl object-cover border-4 border-neon-cyan shadow-glow-cyan mx-auto"
+                                     onerror="this.src='https://placehold.co/300x300/121824/00f3ff?text=Dilusha+Lakshan'">
+                                <div class="absolute -bottom-3 right-0 bg-neon-purple text-white px-4 py-1 rounded-full text-xs font-extrabold uppercase shadow-lg">
+                                    Producer & Artist
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mt-6 font-orbitron">Dilusha Lakshan</h3>
+                            <p class="text-neon-cyan text-sm font-semibold">Audio Engineer & Music Producer</p>
+                        </div>
+
+                        <div class="lg:col-span-7 space-y-6">
+                            <div class="inline-block px-3 py-1 rounded-full bg-neon-cyan/10 text-neon-cyan text-xs font-bold uppercase tracking-wider">
+                                About Dilusha Lakshan Studio
+                            </div>
+                            <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-orbitron">Passion For Sound Excellence</h2>
+                            <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                                <strong class="text-white">Dilusha Lakshan Music Studio</strong> is a dedicated audio production facility specialized in delivering high-end music covers, original beats, song arrangements, and vocal mixing. Led by Dilusha Lakshan, the studio blends creative musical craftsmanship with precise technical mixing.
+                            </p>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Whether you are an aspiring vocalist looking to record your first single, a band needing live guitar tracks, or a content creator searching for unique background audio, our studio provides customized sound engineering tailored to your vision.
+                            </p>
+
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-dark-border">
+                                <div class="bg-dark-bg p-4 rounded-xl border border-dark-border">
+                                    <div class="text-2xl font-black text-neon-cyan font-orbitron">100%</div>
+                                    <div class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Custom Music</div>
+                                </div>
+                                <div class="bg-dark-bg p-4 rounded-xl border border-dark-border">
+                                    <div class="text-2xl font-black text-neon-purple font-orbitron">HD</div>
+                                    <div class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Audio Quality</div>
+                                </div>
+                                <div class="bg-dark-bg p-4 rounded-xl border border-dark-border col-span-2 sm:col-span-1">
+                                    <div class="text-2xl font-black text-neon-pink font-orbitron">24/7</div>
+                                    <div class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Studio Support</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= VIDEO GALLERY TAB ================= -->
+        <section id="tab-videos" class="tab-content hidden transition-opacity duration-300 py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+                    <div>
+                        <h2 class="text-3xl font-extrabold font-orbitron text-white">Video Gallery</h2>
+                        <p class="text-sm text-gray-400">Explore official covers, music tracks, and studio sessions from our YouTube channel.</p>
+                    </div>
+                    <a href="https://www.youtube.com/channel/UCkZClg9MhxrNQca2wtc2rmw" target="_blank" 
+                       class="px-5 py-2.5 rounded-xl text-xs font-bold uppercase bg-red-600 hover:bg-red-500 text-white flex items-center gap-2">
+                        <i class="fa-brands fa-youtube text-base"></i> View Full YouTube Channel
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Video Card 1 -->
+                    <div class="bg-dark-card rounded-2xl border border-dark-border overflow-hidden hover:border-neon-cyan/50 transition duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="relative aspect-video bg-black">
+                                <iframe class="w-full h-full" 
+                                        src="https://www.youtube.com/embed/KpMh5qKW8uY" 
+                                        title="Karakara Badinnata Guitar Cover" 
+                                        frameborder="0" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                        allowfullscreen></iframe>
+                            </div>
+                            <div class="p-5">
+                                <span class="px-2.5 py-1 rounded bg-neon-cyan/10 text-neon-cyan text-[10px] font-bold uppercase tracking-wider">Guitar Cover</span>
+                                <h3 class="text-base font-bold text-white mt-2 mb-1">Karakara Badinnata - Guitar Cover</h3>
+                                <p class="text-xs text-gray-400 leading-relaxed">Full acoustic and electric guitar composition and arrangement by Dilusha Lakshan.</p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-0">
+                            <a href="https://www.youtube.com/watch?v=KpMh5qKW8uY" target="_blank" class="w-full py-2.5 rounded-lg bg-dark-bg hover:bg-dark-border text-xs font-bold text-gray-300 hover:text-white border border-dark-border flex items-center justify-center gap-2 transition">
+                                <i class="fa-brands fa-youtube text-red-500"></i> Watch on YouTube
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 2 -->
+                    <div class="bg-dark-card rounded-2xl border border-dark-border overflow-hidden hover:border-neon-purple/50 transition duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="relative aspect-video bg-black">
+                                <iframe class="w-full h-full" 
+                                        src="https://www.youtube.com/embed/10JHpsUa5UQ" 
+                                        title="Dilusha Lakshan Studio Track 2" 
+                                        frameborder="0" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                        allowfullscreen></iframe>
+                            </div>
+                            <div class="p-5">
+                                <span class="px-2.5 py-1 rounded bg-neon-purple/10 text-neon-purple text-[10px] font-bold uppercase tracking-wider">Studio Session</span>
+                                <h3 class="text-base font-bold text-white mt-2 mb-1">Official Studio Cover Track</h3>
+                                <p class="text-xs text-gray-400 leading-relaxed">High-definition audio track recorded and mastered at Dilusha Lakshan Music Studio.</p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-0">
+                            <a href="https://www.youtube.com/watch?v=10JHpsUa5UQ" target="_blank" class="w-full py-2.5 rounded-lg bg-dark-bg hover:bg-dark-border text-xs font-bold text-gray-300 hover:text-white border border-dark-border flex items-center justify-center gap-2 transition">
+                                <i class="fa-brands fa-youtube text-red-500"></i> Watch on YouTube
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 3 -->
+                    <div class="bg-dark-card rounded-2xl border border-dark-border overflow-hidden hover:border-neon-pink/50 transition duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="relative aspect-video bg-black">
+                                <iframe class="w-full h-full" 
+                                        src="https://www.youtube.com/embed/svanYFWf83o" 
+                                        title="Dilusha Lakshan Studio Track 3" 
+                                        frameborder="0" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                        allowfullscreen></iframe>
+                            </div>
+                            <div class="p-5">
+                                <span class="px-2.5 py-1 rounded bg-neon-pink/10 text-neon-pink text-[10px] font-bold uppercase tracking-wider">Music Track</span>
+                                <h3 class="text-base font-bold text-white mt-2 mb-1">Featured Music Production</h3>
+                                <p class="text-xs text-gray-400 leading-relaxed">Melodic instrumental arrangement with dynamic sound balancing and mixing.</p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-0">
+                            <a href="https://www.youtube.com/watch?v=svanYFWf83o" target="_blank" class="w-full py-2.5 rounded-lg bg-dark-bg hover:bg-dark-border text-xs font-bold text-gray-300 hover:text-white border border-dark-border flex items-center justify-center gap-2 transition">
+                                <i class="fa-brands fa-youtube text-red-500"></i> Watch on YouTube
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SERVICES TAB ================= -->
+        <section id="tab-services" class="tab-content hidden transition-opacity duration-300 py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl font-extrabold font-orbitron text-white">Studio Services</h2>
+                    <p class="text-gray-400 mt-2 text-sm">Professional audio production packages custom designed for singers, guitarists, and content creators.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Service 1 -->
+                    <div class="bg-dark-card rounded-2xl p-6 border border-dark-border hover:border-neon-cyan transition duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-microphone-lines"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Vocal Recording</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed mb-4">High-fidelity vocal capture using condenser microphones with treated acoustic vocal booths.</p>
+                            <ul class="space-y-2 text-xs text-gray-300 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-cyan"></i> Vocal Pitch Correction</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-cyan"></i> Noise Gate & De-Essing</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-cyan"></i> Harmony Stacking</li>
+                            </ul>
+                        </div>
+                        <button onclick="switchTab('contact')" class="w-full py-2.5 rounded-xl bg-neon-cyan/10 hover:bg-neon-cyan text-neon-cyan hover:text-black font-bold text-xs border border-neon-cyan/30 transition">
+                            Book Session
+                        </button>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="bg-dark-card rounded-2xl p-6 border border-dark-border hover:border-neon-purple transition duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-purple/10 border border-neon-purple/30 text-neon-purple flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-sliders"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Mixing & Mastering</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed mb-4">Balancing audio tracks, EQ adjustments, dynamic range compression, and loudness mastering.</p>
+                            <ul class="space-y-2 text-xs text-gray-300 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-purple"></i> Stereo Enhancement</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-purple"></i> Commercial LUFS Target</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-purple"></i> HQ WAV & MP3 Exports</li>
+                            </ul>
+                        </div>
+                        <button onclick="switchTab('contact')" class="w-full py-2.5 rounded-xl bg-neon-purple/10 hover:bg-neon-purple text-neon-purple hover:text-white font-bold text-xs border border-neon-purple/30 transition">
+                            Book Session
+                        </button>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="bg-dark-card rounded-2xl p-6 border border-dark-border hover:border-neon-pink transition duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-pink/10 border border-neon-pink/30 text-neon-pink flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-guitar"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Guitar Cover Tracks</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed mb-4">Acoustic and electric guitar arrangements recorded live for YouTube covers and backing tracks.</p>
+                            <ul class="space-y-2 text-xs text-gray-300 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-pink"></i> Custom Riffs & Solos</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-pink"></i> Full Backing Beats</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-pink"></i> Video Synced Stems</li>
+                            </ul>
+                        </div>
+                        <button onclick="switchTab('contact')" class="w-full py-2.5 rounded-xl bg-neon-pink/10 hover:bg-neon-pink text-neon-pink hover:text-white font-bold text-xs border border-neon-pink/30 transition">
+                            Book Session
+                        </button>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="bg-dark-card rounded-2xl p-6 border border-dark-border hover:border-neon-gold transition duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-neon-gold/10 border border-neon-gold/30 text-neon-gold flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-music"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Music Production</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed mb-4">Complete original song creation from scratch, beat making, synth design, and jingles.</p>
+                            <ul class="space-y-2 text-xs text-gray-300 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-gold"></i> Original Melody Creation</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-gold"></i> Commercial Jingles</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-gold"></i> BGM For Media</li>
+                            </ul>
+                        </div>
+                        <button onclick="switchTab('contact')" class="w-full py-2.5 rounded-xl bg-neon-gold/10 hover:bg-neon-gold text-neon-gold hover:text-black font-bold text-xs border border-neon-gold/30 transition">
+                            Book Session
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTACT TAB ================= -->
+        <section id="tab-contact" class="tab-content hidden transition-opacity duration-300 py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    
+                    <!-- Contact Info & Socials -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="bg-dark-card rounded-3xl border border-dark-border p-6 sm:p-8 space-y-6">
+                            <div>
+                                <h2 class="text-2xl font-extrabold font-orbitron text-white">Get In Touch</h2>
+                                <p class="text-xs text-gray-400 mt-1">Ready to start your music project? Contact Dilusha Lakshan directly.</p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <a href="tel:+94716183153" class="flex items-center gap-4 p-3.5 rounded-xl bg-dark-bg border border-dark-border hover:border-neon-cyan transition group">
+                                    <div class="w-10 h-10 rounded-lg bg-neon-cyan/10 text-neon-cyan flex items-center justify-center text-lg group-hover:scale-110 transition">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Phone / WhatsApp</div>
+                                        <div class="text-sm font-bold text-white group-hover:text-neon-cyan transition">+94 716183153</div>
+                                    </div>
+                                </a>
+
+                                <a href="https://wa.me/94716183153" target="_blank" class="flex items-center gap-4 p-3.5 rounded-xl bg-emerald-950/40 border border-emerald-800/40 hover:border-emerald-500 transition group">
+                                    <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg group-hover:scale-110 transition">
+                                        <i class="fa-brands fa-whatsapp"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-[10px] text-emerald-400 uppercase tracking-wider font-semibold">Instant Message</div>
+                                        <div class="text-sm font-bold text-white">Chat on WhatsApp</div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="pt-4 border-t border-dark-border">
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-300 mb-3">Connect On Social Media</h3>
+                                <div class="grid grid-cols-1 gap-2.5">
+                                    
+                                    <a href="https://www.youtube.com/channel/UCkZClg9MhxrNQca2wtc2rmw" target="_blank" 
+                                       class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-dark-bg hover:bg-red-950/30 border border-dark-border hover:border-red-600/50 text-gray-300 hover:text-white transition text-xs font-semibold">
+                                        <i class="fa-brands fa-youtube text-red-500 text-base w-5"></i> Official YouTube Channel
+                                    </a>
+
+                                    <a href="https://www.facebook.com/Dilusha-lakshan-studio-102422498659048" target="_blank" 
+                                       class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-dark-bg hover:bg-blue-950/30 border border-dark-border hover:border-blue-600/50 text-gray-300 hover:text-white transition text-xs font-semibold">
+                                        <i class="fa-brands fa-facebook text-blue-500 text-base w-5"></i> Studio Facebook Page
+                                    </a>
+
+                                    <a href="https://www.facebook.com/dilusha1lakshan/" target="_blank" 
+                                       class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-dark-bg hover:bg-blue-950/30 border border-dark-border hover:border-blue-600/50 text-gray-300 hover:text-white transition text-xs font-semibold">
+                                        <i class="fa-brands fa-facebook-f text-blue-400 text-base w-5"></i> දිලුවා PAGE (Official)
+                                    </a>
+
+                                    <a href="https://www.facebook.com/dilusha.lakshan.359" target="_blank" 
+                                       class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-dark-bg hover:bg-blue-950/30 border border-dark-border hover:border-blue-600/50 text-gray-300 hover:text-white transition text-xs font-semibold">
+                                        <i class="fa-brands fa-facebook-square text-sky-400 text-base w-5"></i> Personal Facebook Profile
+                                    </a>
+
+                                    <a href="https://www.instagram.com/dilusha1lakshan/" target="_blank" 
+                                       class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl bg-dark-bg hover:bg-pink-950/30 border border-dark-border hover:border-pink-600/50 text-gray-300 hover:text-white transition text-xs font-semibold">
+                                        <i class="fa-brands fa-instagram text-pink-500 text-base w-5"></i> Instagram Profile
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Booking Form -->
+                    <div class="lg:col-span-7">
+                        <div class="bg-dark-card rounded-3xl border border-dark-border p-6 sm:p-8">
+                            <h2 class="text-2xl font-extrabold font-orbitron text-white mb-2">Send Booking Inquiry</h2>
+                            <p class="text-xs text-gray-400 mb-6">Fill out the details below to reserve studio time or request audio mixing services.</p>
+
+                            <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-1">Your Name</label>
+                                        <input type="text" required placeholder="e.g. Kasun Perera" 
+                                               class="w-full bg-dark-bg border border-dark-border focus:border-neon-cyan focus:outline-none rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 transition">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-1">Phone / WhatsApp</label>
+                                        <input type="tel" required placeholder="e.g. 0771234567" 
+                                               class="w-full bg-dark-bg border border-dark-border focus:border-neon-cyan focus:outline-none rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 transition">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-1">Service Required</label>
+                                    <select class="w-full bg-dark-bg border border-dark-border focus:border-neon-cyan focus:outline-none rounded-xl px-4 py-3 text-sm text-white transition">
+                                        <option value="vocal">Vocal Recording Session</option>
+                                        <option value="mixing">Audio Mixing & Mastering</option>
+                                        <option value="guitar">Guitar Track / Cover Arrangement</option>
+                                        <option value="full">Full Music Production</option>
+                                        <option value="other">Other Inquiry</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-1">Project Message</label>
+                                    <textarea rows="4" required placeholder="Tell us about your song, budget, or preferred studio date..." 
+                                              class="w-full bg-dark-bg border border-dark-border focus:border-neon-cyan focus:outline-none rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 transition"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full py-3.5 rounded-xl font-bold text-sm bg-gradient-to-r from-neon-cyan to-neon-purple text-black hover:opacity-90 transition shadow-glow-cyan">
+                                    <i class="fa-solid fa-paper-plane mr-2"></i> Submit Booking Inquiry
+                                </button>
+                            </form>
+
+                            <div id="form-toast" class="hidden mt-4 p-4 rounded-xl bg-emerald-950/80 border border-emerald-500 text-emerald-300 text-xs font-medium flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-lg text-emerald-400"></i>
+                                <span>Thank you! Your inquiry has been sent. Dilusha Lakshan will contact you shortly.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-dark-card border-t border-dark-border py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center space-x-3">
+                    <img src="https://yt3.googleusercontent.com/lEHTglAW7CsPTMvbY2cqsCRCrkO_VLkT2ahhkjGuU0zTjPslUue9R-EV8Ko9EoGo1E2o2GmTI0w=s120-c-k-c0x00ffffff-no-rj" 
+                         alt="Logo" class="w-8 h-8 rounded-full border border-neon-cyan"
+                         onerror="this.src='https://placehold.co/80x80/0a0d14/00f3ff?text=DLS'">
+                    <span class="text-xs font-bold tracking-wider text-gray-300 font-orbitron">DILUSHA LAKSHAN MUSIC STUDIO</span>
+                </div>
+                
+                <p class="text-xs text-gray-500">&copy; <span id="year"></span> Dilusha Lakshan. All rights reserved.</p>
+
+                <div class="flex items-center space-x-4">
+                    <a href="https://www.youtube.com/channel/UCkZClg9MhxrNQca2wtc2rmw" target="_blank" class="text-gray-400 hover:text-red-500 transition"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/Dilusha-lakshan-studio-102422498659048" target="_blank" class="text-gray-400 hover:text-blue-500 transition"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/dilusha1lakshan/" target="_blank" class="text-gray-400 hover:text-pink-500 transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/94716183153" target="_blank" class="text-gray-400 hover:text-emerald-500 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set dynamic current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.className = 'fa-solid fa-bars text-xl';
+            } else {
+                icon.className = 'fa-solid fa-xmark text-xl';
+            }
+        }
+
+        // Tab Switching Functionality
+        function switchTab(tabId) {
+            // Hide all tab content
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.add('hidden'));
+
+            // Show selected tab
+            const targetTab = document.getElementById('tab-' + tabId);
+            if (targetTab) {
+                targetTab.classList.remove('hidden');
+            }
+
+            // Update navbar link active states
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.className = 'nav-link px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-gray-300 hover:text-white hover:bg-dark-card';
+            });
+
+            const activeBtn = document.getElementById('nav-' + tabId);
+            if (activeBtn) {
+                activeBtn.className = 'nav-link px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-neon-cyan bg-dark-card border border-neon-cyan/30';
+            }
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Contact Form Handling Simulation
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const toast = document.getElementById('form-toast');
+            toast.classList.remove('hidden');
+            document.getElementById('contact-form').reset();
+            
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>
